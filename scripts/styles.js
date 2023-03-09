@@ -176,27 +176,13 @@ const usersArray = [
     }    
 ];
 
-
 /*
 Muestra todo el array de datos
 for (let i = 0; i < usersArray[0].events.length; i++){
   console.log(usersArray[0].events[i])
 }*/
 
-
-console.log("Upcoming Events");
-for (let i = 0; i < usersArray[0].events.length; i++){
-  if(usersArray[0].currentDate < usersArray[0].events[i].date){
-  console.log(usersArray[0].events[i].date)
-}
-}
-console.log("Past Events");
-for (let i = 0; i < usersArray[0].events.length; i++){
-  if(usersArray[0].currentDate > usersArray[0].events[i].date){
-  console.log(usersArray[0].events[i].date)
-}
-}
-
+let FuturoFilter = [];
 
 function paintDOM(usersArray){
   let body = ``;

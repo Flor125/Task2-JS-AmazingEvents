@@ -183,32 +183,36 @@ for (let i = 0; i < usersArray[0].events.length; i++){
 }*/
 
 
-function paintDOM(usersArray){
+let FuturoFilter = [];
+
+function paintDOM(Arraydate){
   let body = ``;
   const tagToUpdate = document.getElementById("card-template"); //declara una variable tagToUpdate
   console.log("tagToUpdate", tagToUpdate);
 
-  for(let i = 0; i < usersArray[0].events.length; i++){
-    if(usersArray[0].currentDate > usersArray[0].events[i].date){
+  for (let i = 0; i < Arraydate.length; i++){
+    if(usersArray[0].currentDate > Arraydate[i].date){
       body += `
       <div class="card m-2" style="width: 17rem" >
-      <img src="${usersArray[0].events[i].image}" alt="Feria" class="card-img-top" height="155" />
-      <div class="card-body">
-        <h5 class="card-title">${usersArray[0].events[i].name}</h5>
-        <p class="card-text">${usersArray[0].events[i].description}</p>
-        <p class="lead">${usersArray[0].events[i].date}</p>
-      </div>
-      <div class="card-footer border-1">
-        <div class="d-flex justify-content-between">
-          <div class="word">Price: $${usersArray[0].events[i].price}</div>
-          <a href="./details.html" class="btn btn-danger">See more...</a>
+        <img src="${usersArray[0].events[i].image}" alt="Feria" class="card-img-top" height="155" />
+        <div class="card-body">
+          <h5 class="card-title">${usersArray[0].events[i].name}</h5>
+          <p class="card-text">${usersArray[0].events[i].description}</p>
+          <p class="lead">${usersArray[0].events[i].date}</p>
+        </div>
+        <div class="card-footer border-1">
+          <div class="d-flex justify-content-between">
+            <div class="word">Price: $${usersArray[0].events[i].price}</div>
+            <a href="./details.html" class="btn btn-danger">See more...</a>
+          </div>
         </div>
       </div>
-    </div>
       `;
+      FuturoFilter.push(Arraydate[i])
     }
   }
   tagToUpdate.innerHTML = body;
 }
 
-paintDOM(usersArray)
+paintDOM(usersArray[0].events);
+console.log(FuturoFilter);
